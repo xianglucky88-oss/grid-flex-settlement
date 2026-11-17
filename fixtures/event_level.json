@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "timezone": "America/New_York",
+  "as_of": "2026-11-05T12:00:00Z",
+  "events": [
+    {
+      "event_id": "dr-2026-11-01",
+      "version": 1,
+      "start": "2026-11-01T00:00:00",
+      "end": "2026-11-02T00:00:00",
+      "timezone": "America/New_York",
+      "direction": "reduce",
+      "status": "active",
+      "baseline_window": {
+        "start": "2026-10-30T00:00:00",
+        "end": "2026-11-01T00:00:00"
+      }
+    }
+  ],
+  "eligibility": [
+    {
+      "eligibility_id": "el-r1-2026",
+      "resource_id": "battery-01",
+      "event_id": "dr-2026-11-01",
+      "start": "2026-01-01T00:00:00",
+      "end": "2027-01-01T00:00:00",
+      "timezone": "America/New_York"
+    }
+  ],
+  "baselines": [
+    {
+      "baseline_id": "bl-battery-01",
+      "resource_id": "battery-01",
+      "event_id": "dr-2026-11-01",
+      "version": 1,
+      "method": "mean",
+      "representation": "scalar",
+      "level_kw": 120,
+      "window": {
+        "start": "2026-10-30T00:00:00",
+        "end": "2026-11-01T00:00:00"
+      },
+      "timezone": "America/New_York",
+      "status": "active",
+      "issued_at": "2026-10-31T06:00:00Z"
+    }
+  ],
+  "instructions": [
+    {
+      "instruction_id": "dispatch-1",
+      "event_id": "dr-2026-11-01",
+      "resource_id": "battery-01",
+      "version": 1,
+      "issued_at": "2026-10-31T18:00:00Z",
+      "start": "2026-11-01T00:00:00",
+      "end": "2026-11-02T00:00:00",
+      "capacity_kw": 40,
+      "direction": "reduce",
+      "timezone": "America/New_York"
+    }
+  ],
+  "readings": [
+    {
+      "reading_id": "meter-1",
+      "resource_id": "battery-01",
+      "start": "2026-11-01T00:00:00",
+      "end": "2026-11-02T00:00:00",
+      "kw": 80,
+      "timezone": "America/New_York",
+      "received_at": "2026-11-02T06:00:00Z"
+    }
+  ],
+  "rates": [
+    {
+      "rate_version_id": "tariff-a",
+      "version": 1,
+      "effective_from": "2026-01-01T00:00:00Z",
+      "capacity_rate_per_kw_hour": "0.25",
+      "energy_rate_per_kwh": "0.10",
+      "deviation_rate_per_kwh": "0.05",
+      "currency": "USD",
+      "direction": "reduce",
+      "issued_at": "2025-12-15T00:00:00Z"
+    }
+  ],
+  "prior_bills": [
+    {
+      "bill_id": "bill-dr-2026-11-01-battery-01",
+      "event_id": "dr-2026-11-01",
+      "resource_id": "battery-01",
+      "revision": 1,
+      "status": "locked",
+      "amount_cents": 24000,
+      "currency": "USD"
+    }
+  ],
+  "rules": {
+    "rule_version": "grid-flex-settlement.rules/2.0",
+    "baseline_policy": "hybrid",
+    "min_baseline_coverage": 0.95,
+    "coverage_policy": "prorate",
+    "shortfall_penalty": true,
+    "split_at_local_midnight": true,
+    "rate_conflict_policy": "error"
+  }
+}
